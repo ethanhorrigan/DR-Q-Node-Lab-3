@@ -1,19 +1,25 @@
 var express = require('express');
 var app = express();
-
+var path = require('path');
 
 app.get('/', function(req, res) {
     res.send('Hello World');
 })
 
-app.get('/hello/:name', function (req, res) {
+app.get('/hello/:name', function(req, res) {
     console.log(req.params.name);
     res.send('Hello ' + req.params.name);
 })
- 
- //var jsonResponse = require("response.json"); // Path to response.JSON
 
- app.get('/api/data', function(req, res){
+app.get('/test', function(req, res) {
+    console.log("file io");
+    res.sendFile(path.join(__dirname + '/index.html'));
+});
+app.listen(8080);
+
+//var jsonResponse = require("response.json"); // Path to response.JSON
+
+app.get('/api/data', function(req, res) {
     const posts = [
         {
             "posts": [
