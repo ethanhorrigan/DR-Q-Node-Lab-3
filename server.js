@@ -17,6 +17,27 @@ app.get('/test', function(req, res) {
 });
 app.listen(8080);
 
+
+app.post('/name', function(req, res) {
+    console.log("post method");
+    console.log(req.body.firstname);
+    res.send('Hello ' + req.body.firstname + " " + req.body.lastname);
+})
+
+app.get('/name', function(req, res) {
+    console.log("get method");
+    console.log(req.query.lastname);
+    res.send('Hello ' + " " + req.query.firstname + " " + req.query.lastname);
+})
+
+
+app.get('/name', function(req, res) {
+    console.log("get method");
+    console.log(req.query.lastname);
+    res.send('Hello ' + " " + req.query.firstname + " " + req.query.lastname);
+})
+
+
 //var jsonResponse = require("response.json"); // Path to response.JSON
 
 app.get('/api/data', function(req, res) {
